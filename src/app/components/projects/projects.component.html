@@ -1,0 +1,24 @@
+<div class="container">
+  <div *ngIf="!isDone">
+   
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+  
+
+  </div>
+
+  <div *ngIf="isDone">
+    <div class="github" *ngFor="let dat of data">
+      <a [href]="dat.html_url"
+        ><div class="button2">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          {{ dat.name }}
+        </div></a
+      >
+    </div>
+  </div>
+</div>

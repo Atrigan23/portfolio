@@ -1,0 +1,191 @@
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.7rem;
+    box-sizing: 2rem;
+    
+}
+.github{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.button2 {
+    
+    display: inline-block;
+    padding:10px;
+    border-radius: 4px;
+    color: #e91e63;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin: 25px;
+    font-family: "Roboto", sans-serif;
+    filter: hue-rotate(0deg);
+    border: 2px solid #d2bdff;
+    transition: all 0.1s linear;
+  
+    &:hover {
+      border: 1px solid transparent;
+      span {
+        position: absolute;
+        display: block;
+  
+        &:nth-child(1) {
+          filter: hue-rotate(0deg);
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, transparent, #3a86ff);
+          animation: animate1 1s linear infinite;
+        }
+        @keyframes animate1 {
+          0% {
+            left: -100%;
+          }
+          50%,
+          100% {
+            left: 100%;
+          }
+        }
+  
+        &:nth-child(2) {
+          filter: hue-rotate(60deg);
+          top: -100%;
+          right: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(180deg, transparent, #3a86ff);
+          animation: animate2 1s linear infinite;
+          animation-delay: 0.25s;
+        }
+  
+        @keyframes animate2 {
+          0% {
+            top: -100%;
+          }
+          50%,
+          100% {
+            top: 100%;
+          }
+        }
+        &:nth-child(3) {
+          filter: hue-rotate(120deg);
+          bottom: 0;
+          right: 0;
+          width: 100%;
+  
+          background: linear-gradient(270deg, transparent, #3a86ff);
+          animation: animate3 1s linear infinite;
+          animation-delay: 0.5s;
+        }
+        @keyframes animate3 {
+          0% {
+            right: -100%;
+            height: 3px;
+          }
+          50%,
+          100% {
+            height: 2px;
+            right: 100%;
+          }
+        }
+  
+        &:nth-child(4) {
+          filter: hue-rotate(300deg);
+          bottom: -100%;
+          left: 0;
+          width: 3px;
+          height: 100%;
+          background: linear-gradient(360deg, transparent, #3a86ff);
+          animation: animate4 1s linear infinite;
+          animation-delay: 0.75s;
+        }
+        @keyframes animate4 {
+          0% {
+            bottom: -100%;
+          }
+          50%,
+          100% {
+            bottom: 100%;
+          }
+        }
+      }
+    }
+  }
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    
+}
+#loader {
+    background-color: white;
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear ;
+    animation: spin 1.5s linear ;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

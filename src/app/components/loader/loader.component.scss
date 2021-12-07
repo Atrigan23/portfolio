@@ -1,0 +1,138 @@
+$bg: #111;
+$fg: #97e2dd;
+$ds: #335696;
+$txt: #fff;
+
+@mixin cc(){
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+div{
+  position: absolute;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  &:before, &:after{
+    content: '';
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+body{
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 1vmin;
+  font-family: "Open Sans", sans-serif;
+  color: $txt;
+  background: $bg;
+  
+  & .message{
+    position: absolute;
+    min-height: 2rem;
+    right:  1em;
+    top: 1em;
+    max-width: 90vw;
+    font-size: 0.75rem;
+
+    & a{
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid $txt;
+      &:hover{
+        border-width: 3px;
+      }
+    }
+
+  }
+  
+  & .loader{
+    @include cc();
+    width: 80em;
+    height: 80em;
+    border: 2em solid $fg;
+    border-radius: 50%;
+    animation: shadowOuter 4s 0s ease infinite alternate;
+    &:before{
+      @include cc();
+      width: 76em;
+      height: 76em;
+      border: 1.5em solid transparentize($ds, 0.25);
+      border-radius: 50%;
+      animation: shadowInner 4s 0s ease infinite alternate;
+    }
+    &:after{
+      @include cc();
+      width: 73em;
+      height: 73em;
+      border: 1.5em solid transparentize($ds, 0.75);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 7em $ds);
+    }
+  }
+  
+  & .dot{
+    top: 50%;
+    width: 10em;
+    height: 10em;
+    overflow: visible;
+    transition: all 1s ease;
+    transform: rotate(0deg);
+    &:after{
+      top: -2em;
+      left: calc(50% - 2em);
+      width: 4em;
+      height: 4em;
+      background: $fg;
+      border-radius: 50%;
+      filter: drop-shadow(0 0 0.5em $fg) drop-shadow(0 0 0.25em $ds);
+    }
+    &:nth-child(1){
+      left: calc(33% - 5em);
+      animation: moveFirst 2s 0s ease 1;
+    }
+    &:nth-child(2){
+      left: calc(50% - 5em);
+      animation: moveSecond 2s 0s ease infinite;
+    }
+    &:nth-child(3){
+      left: calc(67% - 5em);
+      animation: moveThird 2s 0s ease infinite;
+    }
+  }
+  
+}
+
+@keyframes moveFirst {
+  0%   {left: calc(33% - 5em);}
+  100% {left: calc(50% - 5em);}
+}
+
+@keyframes moveSecond {
+  0%   {left: calc(50% - 5em);}
+  100% {left: calc(67% - 5em)}
+}
+
+@keyframes moveThird {
+  0%   {left: calc(67% - 5em);transform: rotate(0deg);}
+  100% {left: calc(33% - 5em);transform: rotate(360deg);}
+}
+
+@keyframes shadowOuter {
+  0%   {filter: drop-shadow(0 0 1em $ds);}
+  100% {filter: drop-shadow(0 0 3em $ds);}
+}
+
+@keyframes shadowInner {
+  0%   {filter: drop-shadow(0 0 3em $ds);}
+  100% {filter: drop-shadow(0 0 5em $ds);}
+}
