@@ -26,13 +26,20 @@
   
 }
 
-.skills {
+.modules {
     
-    
+   display: flex;
+   flex-direction: column; 
   
     
     
     
+}
+
+h1 {
+    color: aliceblue;
+    text-shadow: 5px 5px 5px black;
+    margin-bottom: 1vw;
 }
 
 
